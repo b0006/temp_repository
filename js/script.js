@@ -82,6 +82,8 @@ $(document).ready(function(){
     // click on cell
     addDynamicEventListener(document.body, 'click', '.rank__check', function (event) {
 
+        //remove active from all pieces
+        $(".piece").removeClass("active");
         $('.rank__check').removeClass("over");
 
         try {
