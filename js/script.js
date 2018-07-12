@@ -68,9 +68,8 @@ window.onload = function () {
         var touch = event.targetTouches[0];
 
         // Place element where the finger is
-        // draggable.style.left = touch.pageX-25 + 'px';
-        // draggable.style.top = touch.pageY-25 + 'px';
+        event.style.left = touch.pageX-25 + 'px';
+        event.style.top = touch.pageY-25 + 'px';
         event.preventDefault();
     }, false);
-
 };
