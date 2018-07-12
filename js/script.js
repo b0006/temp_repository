@@ -59,11 +59,18 @@ window.onload = function () {
         if (event.preventDefault)
             event.preventDefault();
 
-        console.log("dragenter");
-
         // const data = event.childNodes[0].nodeValue;
         // console.log('Drag enter: "' + data + '"');
         return false;
     });
+
+    document.addEventListener('touchmove', function(event) {
+        var touch = event.targetTouches[0];
+
+        // Place element where the finger is
+        // draggable.style.left = touch.pageX-25 + 'px';
+        // draggable.style.top = touch.pageY-25 + 'px';
+        event.preventDefault();
+    }, false);
 
 };
