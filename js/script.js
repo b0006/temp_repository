@@ -104,12 +104,18 @@ $(document).ready(function(){
                     currentColor = "white";
                 }
 
-                $(but).removeClass("active");
+
 
                 if(currentColor === "black") {
                     if (((but_y - current_y) === -1) && ((but_x - current_x === 1) || (but_x - current_x === -1))) {
+                        $(but).removeClass("active");
+
                         // createElement
                         $(event.target).append('<div class="piece black">&#9820;</div>');
+
+                        // removeElement
+                        $(but).remove();
+                        but = null;
                     }
                 }
                 else {
@@ -117,12 +123,13 @@ $(document).ready(function(){
                         // createElement
                         $(event.target).append('<div class="piece white">&#9814;</div>');
 
+                        // removeElement
+                        $(but).remove();
+                        but = null;
                     }
                 }
 
-                // removeElement
-                $(but).remove();
-                but = null;
+
 
             }
         }
