@@ -36,3 +36,7 @@
 .content {
     text-align: center;
 }
+
+.active {
+    color: yellow;
+}

@@ -5,14 +5,12 @@
     <title>Шашки</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <!--<script-->
-            <!--src="https://code.jquery.com/jquery-3.3.1.js"-->
-            <!--integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="-->
-            <!--crossorigin="anonymous"></script>-->
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="js/dynamic.js"></script>
 
 </head>
 <body>
@@ -20,84 +18,84 @@
 <div class="content">
     <div class="board">
         <div class="rank">
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece black">&#9820;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece black">&#9820;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece black">&#9820;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece black">&#9820;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="1" y="0"><div class="piece black">&#9820;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="3" y="0"><div class="piece black">&#9820;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="5" y="0"><div class="piece black">&#9820;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="7" y="0"><div class="piece black">&#9820;</div></div>
         </div>
         <div class="rank">
-            <div class="rank__check"><div draggable="true" class="piece black">&#9820;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece black">&#9820;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece black">&#9820;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece black">&#9820;</div></div>
-            <div class="rank__check"></div>
+            <div class="rank__check" x="0" y="1"><div class="piece black">&#9820;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="2" y="1"><div class="piece black">&#9820;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="4" y="1"><div class="piece black">&#9820;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="6" y="1"><div class="piece black">&#9820;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
         </div>
         <div class="rank">
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece black">&#9820;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece black">&#9820;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece black">&#9820;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece black">&#9820;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="1" y="2"><div class="piece black">&#9820;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="3" y="2"><div class="piece black">&#9820;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="5" y="2"><div class="piece black">&#9820;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="7" y="2"><div class="piece black">&#9820;</div></div>
         </div>
         <div class="rank">
-            <div class="rank__check"></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"></div>
+            <div class="rank__check" x="0" y="3"></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="2" y="3"></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="4" y="3"></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="6" y="3"></div>
+            <div class="rank__check" x="-1" y="-1"></div>
         </div>
         <div class="rank">
-            <div class="rank__check"></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="1" y="4"></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="3" y="4"></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="5" y="4"></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="7" y="4"></div>
         </div>
         <div class="rank">
-            <div class="rank__check"><div draggable="true" class="piece white">&#9814;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece white">&#9814;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece white">&#9814;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece white">&#9814;</div></div>
-            <div class="rank__check"></div>
+            <div class="rank__check" x="0" y="5"><div class="piece white">&#9814;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="2" y="5"><div class="piece white">&#9814;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="4" y="5"><div class="piece white">&#9814;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="6" y="5"><div class="piece white">&#9814;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
         </div>
         <div class="rank">
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece white">&#9814;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece white">&#9814;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece white">&#9814;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece white">&#9814;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="1" y="6"><div class="piece white">&#9814;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="3" y="6"><div class="piece white">&#9814;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="5" y="6"><div class="piece white">&#9814;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="7" y="6"><div class="piece white">&#9814;</div></div>
         </div>
         <div class="rank">
-            <div class="rank__check"><div draggable="true" class="piece white">&#9814;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece white">&#9814;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece white">&#9814;</div></div>
-            <div class="rank__check"></div>
-            <div class="rank__check"><div draggable="true" class="piece white">&#9814;</div></div>
-            <div class="rank__check"></div>
+            <div class="rank__check" x="0" y="7"><div class="piece white">&#9814;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="2" y="7"><div class="piece white">&#9814;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="4" y="7"><div class="piece white">&#9814;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
+            <div class="rank__check" x="6" y="7"><div class="piece white">&#9814;</div></div>
+            <div class="rank__check" x="-1" y="-1"></div>
         </div>
     </div>
 </div>
