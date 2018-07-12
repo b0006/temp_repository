@@ -72,4 +72,7 @@ window.onload = function () {
         event.style.top = touch.pageY-25 + 'px';
         event.preventDefault();
     }, false);
+
+    $( "#draggable5" ).draggable({ grid: [ 80, 80 ] });
+
 };
