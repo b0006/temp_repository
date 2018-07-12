@@ -75,7 +75,6 @@ window.onload = function () {
 
     $( ".piece" ).draggable({
         grid: [ 80, 80 ],
-        axis: "x"
     });
 
 };
