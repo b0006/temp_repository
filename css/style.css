@@ -40,3 +40,7 @@
 .active {
     color: yellow;
 }
+
+.potencial_dead {
+    color: orangered;
+}
