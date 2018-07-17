@@ -1,16 +1,24 @@
 $(document).ready(function(){
 
+    let current_script = document.querySelector('script[src*="script.js"]');
+
     // PP - Player vs Player
     // CP - Computer vs Player
     // AUTO - Computer vs Computer
-    const MODE_GAME = "CP";
+    const MODE_GAME = current_script.getAttribute("mode-game");
 
-    let player = "white";
+    // LOW
+    // MEDIUM
+    // HARD
+    const COMPUTER_LEVEL = current_script.getAttribute("game-level");
 
-    let current_piece = null;
-    let nextAttack = null;
-    let nextStep = null;
-    let nextTarget = null;
+    let player = "white"; //the first player
+    let isHasEnemy = false;
+
+    let current_piece = null; // global last click piece
+    let nextAttack = null; // global next cell for player attack
+    let nextStep = null; // global next cell for player step
+    let nextTarget = null; // global next enemy of player
 
     function checkPlayer(object) {
         if(object.classList.contains("black")) {
@@ -20,14 +28,6 @@ $(document).ready(function(){
         {
             return "white";
         }
-    }
-    
-    function atack() {
-        
-    }
-    
-    function step() {
-
     }
 
     // if cell has coordinates, then at this cell posible move
@@ -49,11 +49,6 @@ $(document).ready(function(){
         }
     }
 
-    function isNextCellWhite(array) {
-
-
-    }
-
     function isPotencialCellWhite(current_x, current_y, potencial_x, potencial_y) {
         if ((current_x - potencial_x === -1) && (current_y - potencial_y === 1) ||
             (current_x - potencial_x === 1) && (current_y - potencial_y === 1)
@@ -64,6 +59,8 @@ $(document).ready(function(){
             return false;
         }
     }
+
+    // COMPUTER LOGIC
 
     function getPosibleBlackPieces() {
         const rank__check = $(".rank__check");
@@ -135,6 +132,18 @@ $(document).ready(function(){
 
         return arGoodEmptyForNextStep;
 
+    }
+
+    // COMPUTER LOGIC
+
+    function getNeighborEnemy() {
+        const rank__check = $(".rank__check");
+
+        rank__check.each(function(index, value) {
+            if(isMoviableCell(value)){
+
+            }
+        });
     }
 
     function getPosibleWhitePieces() {
@@ -233,7 +242,6 @@ $(document).ready(function(){
             let next_x = arGoodEmptyForNextStep[nextStepComputer]["empty_x"];
             let next_y = arGoodEmptyForNextStep[nextStepComputer]["empty_y"];
 
-
             let current_cell = $(".rank__check[x=" + x + "][y=" + y + "]");
             let next_cell = $(".rank__check[x=" + next_x + "][y=" + next_y + "]");
 
@@ -246,10 +254,6 @@ $(document).ready(function(){
         catch(e_comp){}
 
 
-
-    }
-
-    function atackComputer() {
 
     }
 
@@ -318,6 +322,8 @@ $(document).ready(function(){
                                             target: piece_for_attack,
                                             isAttack: true
                                         });
+
+                                        isHasEnemy = true;
                                     }
                                 }
                                 catch(piece_for_e) {}
@@ -350,6 +356,8 @@ $(document).ready(function(){
                                             target: piece_for_attack,
                                             isAttack: true
                                         });
+
+                                        isHasEnemy = true;
                                     }
                                 }
                                 catch(piece_for_e) {}
@@ -385,6 +393,8 @@ $(document).ready(function(){
                                             target: piece_for_attack,
                                             isAttack: true
                                         });
+
+                                        isHasEnemy = true;
                                     }
                                 }
                                 catch(piece_for_e){}
@@ -418,6 +428,8 @@ $(document).ready(function(){
                                             target: piece_for_attack,
                                             isAttack: true
                                         });
+
+                                        isHasEnemy = true;
                                     }
                                 }
                                 catch(piece_for_e){}
@@ -472,24 +484,50 @@ $(document).ready(function(){
             // }
         }
 
-        if(current_piece.classList.contains("white")) {
-            // set for white next step
+        // attack
+        if(isHasEnemy) {
+            if(current_piece.classList.contains("white")) {
+                // set for white next step
 
-            // if next cell has enemy then attack
-            if(isWhiteNeedAttack.length > 0) {
-                let jumping = isWhiteNeedAttack[0].target;
-                let enemy = isWhiteNeedAttack[0].enemy;
+                // if next cell has enemy then attack
+                if(isWhiteNeedAttack.length > 0) {
+                    let jumping = isWhiteNeedAttack[0].target;
+                    let enemy = isWhiteNeedAttack[0].enemy;
 
-                nextTarget = enemy;
+                    nextTarget = enemy;
 
-                $(current_piece).addClass("active");
-                $($(enemy)[0].firstElementChild).addClass("potencial_dead");
-                $(jumping).addClass("over");
+                    $(current_piece).addClass("active");
+                    $($(enemy)[0].firstElementChild).addClass("potencial_dead");
+                    $(jumping).addClass("over");
 
-                nextAttack = jumping;
+                    nextAttack = jumping;
+                    isHasEnemy = true;
 
+                }
             }
-            else {
+            else if(current_piece.classList.contains("black")) {
+                // set for black next step
+
+                // if next cell has enemy then attack
+                if(isBlackNeedAttack.length > 0) {
+                    let jumping = isBlackNeedAttack[0].target;
+                    let enemy = isBlackNeedAttack[0].enemy;
+
+                    nextTarget = enemy;
+
+                    $(current_piece).addClass("active");
+                    $($(enemy)[0].firstElementChild).addClass("potencial_dead");
+                    $(jumping).addClass("over");
+
+                    nextAttack = jumping;
+                    isHasEnemy = true;
+
+                }
+            }
+        }
+        // step
+        else {
+            if(current_piece.classList.contains("white")) {
 
                 $(current_piece).addClass("active");
 
@@ -498,26 +536,9 @@ $(document).ready(function(){
                 });
 
                 nextStep = arPotencialWhite;
-            }
-        }
-        else if(current_piece.classList.contains("black")) {
-            // set for black next step
-
-            // if next cell has enemy then attack
-            if(isBlackNeedAttack.length > 0) {
-                let jumping = isBlackNeedAttack[0].target;
-                let enemy = isBlackNeedAttack[0].enemy;
-
-                nextTarget = enemy;
-
-                $(current_piece).addClass("active");
-                $($(enemy)[0].firstElementChild).addClass("potencial_dead");
-                $(jumping).addClass("over");
-
-                nextAttack = jumping;
 
             }
-            else {
+            else if(current_piece.classList.contains("black")) {
 
                 $(current_piece).addClass("active");
 
@@ -529,11 +550,9 @@ $(document).ready(function(){
             }
         }
 
-
-
     });
 
-    
+
     // click on cell
     addDynamicEventListener(document.body, 'click', '.rank__check', function (event) {
 
@@ -563,36 +582,42 @@ $(document).ready(function(){
                 //attack
                 if(nextAttack !== null) {
 
-                    // createElement
-                    if(currentColor === "white") {
-                        $(event.target).append('<div class="piece white">&#9814;</div>');
-                    }
-                    else if(currentColor === "black") {
-                        $(event.target).append('<div class="piece black">&#9820;</div>');
-                    }
+                    if((nextAttack.getAttribute("x") === event.target.getAttribute("x")) && (nextAttack.getAttribute("y") === event.target.getAttribute("y"))) {
 
-                    $(current_piece).remove();
-                    current_piece = null;
-
-                    let kill_target = nextTarget.firstElementChild;
-                    $(kill_target).remove();
-
-                    // more attack must can do it...
-                    //...
-                    //...
-
-                    if(MODE_GAME === "CP") {
-                        stepComputer();
-                    }
-                    else if(MODE_GAME === "PP") {
-                        // change player
-                        if(currentColor === "white") {
-                            player = "black";
+                        // createElement
+                        if (currentColor === "white") {
+                            $(event.target).append('<div class="piece white">&#9814;</div>');
                         }
-                        else if(currentColor === "black") {
-                            player = "white";
+                        else if (currentColor === "black") {
+                            $(event.target).append('<div class="piece black">&#9820;</div>');
                         }
 
+                        $(current_piece).remove();
+                        current_piece = null;
+
+                        let kill_target = nextTarget.firstElementChild;
+                        $(kill_target).remove();
+
+                        // kill enemy
+                        isHasEnemy = false;
+
+                        // more attack must can do it...
+                        //...
+                        //...
+
+                        if (MODE_GAME === "CP") {
+                            stepComputer();
+                        }
+                        else if (MODE_GAME === "PP") {
+                            // change player
+                            if (currentColor === "white") {
+                                player = "black";
+                            }
+                            else if (currentColor === "black") {
+                                player = "white";
+                            }
+
+                        }
                     }
 
                 }
@@ -631,30 +656,6 @@ $(document).ready(function(){
                 nextStep = null;
                 nextTarget = null;
                 nextAttack = null;
-
-
-                // if(currentColor === "black") {
-                //
-                //     if (((but_y - current_y) === -1) && ((but_x - current_x === 1) || (but_x - current_x === -1))) {
-                //         $(current_piece).removeClass("active");
-                //
-                //         // createElement
-                //         $(event.target).append('<div class="piece black">&#9820;</div>');
-                //
-                //         // removeElement
-                //         $(current_piece).remove();
-                //         current_piece = null;
-                //
-                //         // change player
-                //         player = "white";
-                //
-                //     }
-                // }
-                // else if(currentColor === "white") {
-                //
-                // }
-
-
 
             }
         }

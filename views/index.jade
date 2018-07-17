@@ -1,0 +1,125 @@
+extends layout
+
+block content
+  h1= head
+
+  if choose_mode_game === "Y"
+    form(action="/" method='post')
+        input(type="radio", name="mode_game", value="PP")
+        | Человек против Человека
+        input(type="radio", name="mode_game", value="CP")
+        | Человек против Компьютера
+        input(type='submit' value='Выбрать')
+
+  if choose_level === "Y"
+    form(action="/" method='post')
+      input(type='hidden' name="mode_game" value="#{mode_game}")
+      input(type="radio", name="game_level", value="low")
+      | Низкий
+      input(type="radio", name="game_level", value="medium")
+      | Срежний
+      input(type="radio", name="game_level", value="high")
+      | Высокий
+      input(type='submit' value='Выбрать')
+
+
+  if load_board === "Y"
+      div.content
+        div.board
+            div.rank
+                div.rank__check
+                div.rank__check(x="1" y="0")
+                    div.piece.black &#9820;
+                div.rank__check
+                div.rank__check(x="3" y="0")
+                    div.piece.black &#9820;
+                div.rank__check
+                div.rank__check(x="5" y="0")
+                    div.piece.black &#9820;
+                div.rank__check
+                div.rank__check(x="7" y="0")
+                    div.piece.black &#9820;
+            div.rank
+                div.rank__check(x="0" y="1")
+                    div.piece.black &#9820;
+                div.rank__check
+                div.rank__check(x="2" y="1")
+                    div.piece.black &#9820;
+                div.rank__check
+                div.rank__check(x="4" y="1")
+                    div.piece.black &#9820;
+                div.rank__check
+                div.rank__check(x="6" y="1")
+                    div.piece.black &#9820;
+                div.rank__check
+            div.rank
+                div.rank__check
+                div.rank__check(x="1" y="2")
+                    div.piece.black &#9820;
+                div.rank__check
+                div.rank__check(x="3" y="2")
+                    div.piece.black &#9820;
+                div.rank__check
+                div.rank__check(x="5" y="2")
+                    div.piece.black &#9820;
+                div.rank__check
+                div.rank__check(x="7" y="2")
+                    div.piece.black &#9820;
+            div.rank
+                div.rank__check(x="0" y="3")
+                div.rank__check
+                div.rank__check(x="2" y="3")
+                div.rank__check
+                div.rank__check(x="4" y="3")
+                div.rank__check
+                div.rank__check(x="6" y="3")
+                div.rank__check
+            div.rank
+                div.rank__check
+                div.rank__check(x="1" y="4")
+                div.rank__check
+                div.rank__check(x="3" y="4")
+                div.rank__check
+                div.rank__check(x="5" y="4")
+                div.rank__check
+                div.rank__check(x="7" y="4")
+            div.rank
+                div.rank__check(x="0" y="5")
+                    div.piece.white &#9814;
+                div.rank__check
+                div.rank__check(x="2" y="5")
+                    div.piece.white &#9814;
+                div.rank__check
+                div.rank__check(x="4" y="5")
+                    div.piece.white &#9814;
+                div.rank__check
+                div.rank__check(x="6" y="5")
+                    div.piece.white &#9814;
+                div.rank__check
+            div.rank
+                div.rank__check
+                div.rank__check(x="1" y="6")
+                    div.piece.white &#9814;
+                div.rank__check
+                div.rank__check(x="3" y="6")
+                    div.piece.white &#9814;
+                div.rank__check
+                div.rank__check(x="5" y="6")
+                    div.piece.white &#9814;
+                div.rank__check
+                div.rank__check(x="7" y="6")
+                    div.piece.white &#9814;
+            div.rank
+                div.rank__check(x="0" y="7")
+                    div.piece.white &#9814;
+                div.rank__check
+                div.rank__check(x="2" y="7")
+                    div.piece.white &#9814;
+                div.rank__check
+                div.rank__check(x="4" y="7")
+                    div.piece.white &#9814;
+                div.rank__check
+                div.rank__check(x="6" y="7")
+                    div.piece.white &#9814;
+                div.rank__check
+
