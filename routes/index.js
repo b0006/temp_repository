@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.post('/', function(req, res, next) {
+router.post('/game/', function(req, res, next) {
     let mode_game = req.body.mode_game;
     let level_game = req.body.game_level;
 

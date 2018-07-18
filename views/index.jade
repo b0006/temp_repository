@@ -4,7 +4,7 @@ block content
   h1= head
 
   if choose_mode_game === "Y"
-    form(action="/" method='post')
+    form(action="/game/" method='post')
         input(type="radio", name="mode_game", value="PP")
         | Человек против Человека
         input(type="radio", name="mode_game", value="CP")
@@ -12,7 +12,7 @@ block content
         input(type='submit' value='Выбрать')
 
   if choose_level === "Y"
-    form(action="/" method='post')
+    form(action="/game/" method='post')
       input(type='hidden' name="mode_game" value="#{mode_game}")
       input(type="radio", name="game_level", value="low")
       | Низкий
